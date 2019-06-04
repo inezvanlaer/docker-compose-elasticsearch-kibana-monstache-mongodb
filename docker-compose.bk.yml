@@ -285,64 +285,10 @@ services:
       nproc: 65535
     networks:
       - ingress
-
-  mongomaster:
-    build: mongo/.
-    container_name: mongomaster
-    deploy:
-      replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
-      resources:
-        limits:
-          cpus: '1'
-          memory: 256M
-        reservations:
-          cpus: '1'
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 10s
-    volumes:
-      - type: volume
-        source: esdata4
-        target: /data/db
-    networks:
-      - elastic
-    ports:
-      - 27017:27017
-  monstache:
-    build: monstache/.
-    container_name: monstache
-    deploy:
-      replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
-      resources:
-        limits:
-          cpus: '1'
-          memory: 256M
-        reservations:
-          cpus: '1'
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 10s
-    networks:
-      - elastic
-
-
 volumes:
   esdata1:
   esdata2:
   esdata3:
-  esdata4:
   logs:
 
 networks:

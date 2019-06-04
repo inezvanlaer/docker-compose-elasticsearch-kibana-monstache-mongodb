@@ -2,19 +2,19 @@
 FROM ubuntu
 
 #Create folder
-RUN mkdir monstache
+RUN mkdir app
 
 # Set the working directory to /app
-WORKDIR /monstache
+WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /monstache
+COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN apt-get update
 
 # Set privilege 
-RUN chmod a+x -R /monstache
+RUN chmod a+x -R /app
 
 # Run app.py when the container launches
-CMD ["top"]
+CMD ./build/linux-amd64/monstache -f config.toml

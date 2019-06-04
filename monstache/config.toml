@@ -1,9 +1,9 @@
 # connection settings
 
 # connect to MongoDB using the following URL
-mongo-url = "mongodb://127.0.0.1:27017/"
+mongo-url = "mongodb://mongomaster:27017/"
 # connect to the Elasticsearch REST API at the following node URLs
-elasticsearch-urls = ["http://localhost:9200"]
+elasticsearch-urls = ["http://elasticsearch1:9200"]
 # frequently required settings
 
 # if you don't want to listen for changes to all collections in MongoDB but only a few
